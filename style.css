@@ -9,15 +9,21 @@ div, body {
 	padding: 0;
 }
 
-#head-logo {
+#head-logo, #logo-shadow {
 	height: 100px;
-	margin-top: 16px;
+	margin-top: 22px;
+	position: relative;
 }
 
 payoff {
 	display: block;
 	margin: 24px;
 	font-style: italic;
+}
+
+img {
+	margin: 0px;
+	padding: 0;
 }
 
 button {
@@ -30,11 +36,6 @@ button {
 	color: orange;
 	transition: 0.5s;
 	cursor: pointer;
-}
-
-img {
-	margin: 0px;
-	padding: 0;
 }
 
 button:hover {
@@ -98,7 +99,7 @@ h2 {
 	width: 10px;
 	height: 10px;
 	border-radius: 10px;
-	border: solid 2px orange;
+	border: solid 2px black;
 }
 
 /*
