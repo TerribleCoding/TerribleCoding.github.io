@@ -41,9 +41,10 @@ img {
 }
 
 button {
-	background-color: none;
+	background-color: var(--color-1);
 	font-weight: bold;
-	padding: 12px;
+	font-size: 16px;
+	padding: 10px;
 	border-radius: 100px;
 	border: solid 2px var(--color-2);
 	min-width: 150px;
@@ -83,6 +84,7 @@ h2 {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	margin-bottom: 48px;
 }
 
 .child {
