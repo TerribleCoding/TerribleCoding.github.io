@@ -77,64 +77,81 @@ class HybridSlideshow {
         this.name = name;
         this.paths = paths; //array
         this.pics = [];
-        this.index = 0;
+        this.counter = 0;
         this.radioButtons = [];
+        this.lArrow, this.rArrow;
     }
 
     generate(parent) {
         let imgContainer = createDiv();
         imgContainer.addClass('img-container');
         imgContainer.parent(parent);
-        let lArrow = createImg('icons/arrow.svg', 'back');
-        // lArrow.addClass('slide');
-        lArrow.mousePressed(this.prev);
-        imgContainer.child(lArrow);
+        this.lArrow = createImg('icons/arrow.svg', 'back');
+        // this.lArrow.addClass('slide');
+        this.lArrow.attribute('onclick', 'tools["' + this.name + '"].slideshow.prev()');
+        imgContainer.child(this.lArrow);
         for (let path of this.paths) {
             let pic = createImg(path, '');
             pic.addClass('slide');
             pic.parent(imgContainer);
             this.pics.push(pic);
         }
-        let rArrow = createImg('icons/arrow.svg', 'next');
-        // rArrow.addClass('slide');
-        rArrow.mousePressed(tools[this.name].slideshow.next);
-        rArrow.style('transform', 'rotate(180deg)');
-        imgContainer.child(rArrow);
+        this.rArrow = createImg('icons/arrow.svg', 'next');
+        // this.rArrow.addClass('slide');
+        this.rArrow.attribute('onclick', 'tools["' + this.name + '"].slideshow.next()');
+        this.rArrow.style('transform', 'rotate(180deg)');
+        imgContainer.child(this.rArrow);
 
         let radioContainer = createDiv();
         radioContainer.addClass('radio-container');
         radioContainer.parent(parent);
-        for (let i of this.pics) {
+        for (let i = 0; i < this.pics.length; i++) {
             let radio = createDiv();
             radio.addClass('radio-child');
+            // radio.attribute('index', i);
+            radio.attribute('onclick', 'tools["' + this.name + '"].slideshow.goToPic(' + i + ')');
             radio.parent(radioContainer);
-            this.radioButtons.push(radio);
+            this.radioButtons[i] = radio;
         }
     }
 
     updateAll() {
-        this.updateImage();
-        this.updateRadio();
+        tools[this.name].slideshow.updateImage();
+        tools[this.name].slideshow.updateRadio();
+        if (tools[this.name].slideshow.counter == 0) {
+            tools[this.name].slideshow.lArrow.style('visibility', 'hidden');
+        } else {
+            tools[this.name].slideshow.lArrow.style('visibility', 'visible');
+        }
+        if (tools[this.name].slideshow.counter == this.pics.length - 1) {
+            tools[this.name].slideshow.rArrow.style('visibility', 'hidden');
+        } else {
+            tools[this.name].slideshow.rArrow.style('visibility', 'visible');
+        }
     }
 
     updateImage() {
         for (let e of this.pics) { e.hide(); }
-        this.pics[this.index].show();
+        this.pics[this.counter].show();
     }
 
     updateRadio() {
         for (let e of this.radioButtons) { e.removeClass('selected'); }
-        this.radioButtons[this.index].addClass('selected');
+        this.radioButtons[this.counter].addClass('selected');
     }
 
     next() {
-        this.index++;
-        print(this.index)
-        this.updateAll();
+        tools[this.name].slideshow.counter++;
+        tools[this.name].slideshow.updateAll();
     }
 
     prev() {
-        this.index--;
-        this.updateAll();
+        tools[this.name].slideshow.counter--;
+        tools[this.name].slideshow.updateAll();
+    }
+
+    goToPic(index) {
+        tools[this.name].slideshow.counter = index;
+        tools[this.name].slideshow.updateAll();
     }
 }

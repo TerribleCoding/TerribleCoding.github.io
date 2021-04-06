@@ -110,7 +110,7 @@ h2 {
 
 .slide {
 	width: 85%;
-	transition: 0.5s;
+	/*transition: 0.5s;*/
 }
 
 [alt=next], [alt=back] {
