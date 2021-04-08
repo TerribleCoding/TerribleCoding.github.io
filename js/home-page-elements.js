@@ -91,9 +91,13 @@ class HybridSlideshow {
         this.lArrow.attribute('onclick', 'tools["' + this.name + '"].slideshow.prev()');
         imgContainer.child(this.lArrow);
         for (let path of this.paths) {
-            let pic = createImg(path, '');
+            let pic = createA(path, '');
             pic.addClass('slide');
+            pic.attribute('data-lightbox', this.name);
+            pic.attribute('data-title', this.name);
             pic.parent(imgContainer);
+            let picture = createImg(path, '');
+            picture.parent(pic);
             this.pics.push(pic);
         }
         this.rArrow = createImg('icons/arrow.svg', 'next');
