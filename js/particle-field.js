@@ -1,8 +1,9 @@
 let particles = [];
+let tools = {};
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    let canvasArea = windowWidth * windowHeight;
+    let canvasArea = width * height;
     let total = floor(canvasArea / 15000);
     for (let i = 0; i < total; i++) {
         let x = random(width);
@@ -10,6 +11,8 @@ function setup() {
         let r = random(1, 8);
         particles[i] = new Particle(x, y, r);
     }
+
+    addPageElements();
 }
 
 function draw() {

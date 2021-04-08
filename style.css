@@ -23,11 +23,13 @@ main {
 div, body {
 	margin: 0;
 	padding: 0;
-	/*border: solid 1px grey;*/
+	/*border: solid 1px white;*/
 }
 
-path {
+/* eliminare */
+path, svg, object {
 	fill: var(--color-1);
+	cursor: pointer;
 }
 
 #head-logo {
@@ -102,24 +104,43 @@ h2 {
 
 .img-container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 }
 
 .slide {
 	width: 85%;
-	transition: 0.5s;
+	/*transition: 0.5s;*/
 }
 
-.inner-container {
+[data-lightbox] > img {
+	width: 100%;
+}
+
+[alt=next], [alt=back] {
+	cursor: pointer;
+	height: 24px;
+}
+
+.radio-container {
 	display: flex;
 	justify-content: space-evenly;
 	padding-top: 4px;
 }
 
-.inner-child {
+.radio-child {
 	width: 10px;
 	height: 10px;
 	border-radius: 10px;
 	border: solid 2px var(--color-1);
+	cursor: pointer;
+	transition: var(--elt-transitions);
+}
+
+.radio-child:hover {
+	background-color: var(--color-2);
+}
+
+.radio-child.selected {
+	background-color: var(--color-1);
 }
