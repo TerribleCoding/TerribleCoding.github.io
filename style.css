@@ -26,12 +26,6 @@ div, body {
 	/*border: solid 1px white;*/
 }
 
-/* eliminare */
-path, svg, object {
-	fill: var(--color-1);
-	cursor: pointer;
-}
-
 #head-logo {
 	height: 100px;
 	margin-top: 22px;
@@ -85,8 +79,7 @@ h2 {
 }
 
 .tool-logo {
-	height: 80px;
-	max-width: 320px;
+	height: 5rem;
 }
 
 .container {
