@@ -1,26 +1,11 @@
-let particles = [];
-let tools = {};
-
-function setup() {
-    createCanvas(windowWidth, windowHeight);
+function particleField() {
     let canvasArea = width * height;
     let total = floor(canvasArea / 15000);
     for (let i = 0; i < total; i++) {
         let x = random(width);
         let y = random(height);
-        let r = random(1, 8);
+        let r = random(1, 4);
         particles[i] = new Particle(x, y, r);
-    }
-
-    addPageElements();
-}
-
-function draw() {
-    clear();
-    for (let i = 0; i < particles.length; i++) {
-        particles[i].show();
-        particles[i].move();
-        particles[i].connect(particles.slice(i));
     }
 }
 
@@ -39,14 +24,12 @@ class Particle {
     show() {
         noStroke();
         fill(255, 50);
-        circle(this.x, this.y, this.r);
+        circle(this.x, this.y, this.r * 2);
     }
 
     move() {
-        if (this.x < 0 || this.x > width)
-            this.xSpeed *= -1;
-        if (this.y < 0 || this.y > height)
-            this.ySpeed *= -1;
+        if (this.x < 0 + this.r || this.x > width - this.r) { this.xSpeed *= -1; }
+        if (this.y < 0 + this.r || this.y > height - this.r) { this.ySpeed *= -1; }
         this.x += this.xSpeed;
         this.y += this.ySpeed;
     }
