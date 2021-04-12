@@ -1,0 +1,30 @@
+{
+    "_comments": {
+        "line0": "To include a new section:",
+        "line1": "Add the tool in objects and fill all the properties",
+        "line2": "Make sure that the property string and its 'name' are the same string",
+        "line3": "Add a value in the 'order' array matching the property name, this order will be applied to the page"
+    },
+    "order": ["AnySection"],
+    "objects": {
+        "AnySection": {
+            "name": "AnySection",
+            "banner": "images/Anysection.png",
+            "captions": [
+                "A powerful web tool for calculating phisical and mechanical properties of standard geometry bars.",
+                "Can be used by designers and engineers as a quick estimation tool, as well as by students as a geometry tool, or simply to find material data from the database"
+            ],
+            "link": "https://terriblecoding.github.io/AnySection",
+            "images": {
+                "path": "images/",
+                "prefix": "Anysection-screenshot-",
+                "name": [
+                    "01",
+                    "02",
+                    "03"
+                ],
+                "extension": "png"
+            }
+        }
+    }
+}

@@ -1,18 +1,3 @@
-function addPageElements() {
-    tools['AnySection'] = new WebToolFrame('AnySection');
-    tools['AnySection'].banner = "images/Anysection.png";
-    tools['AnySection'].captions = [
-        'A powerful web tool for calculating phisical and mechanical properties of standard geometry bars.',
-        'Can be used by designers and engineers as a quick estimation tool, as well as by students as a geometry tool, or simply to find material data from the database'
-    ];
-    tools['AnySection'].link = 'https://terriblecoding.github.io/AnySection';
-    tools['AnySection'].images.path = 'images/';
-    tools['AnySection'].images.prefix = 'Anysection-screenshot-';
-    tools['AnySection'].images.name = ['01', '02', '03'];
-    tools['AnySection'].images.extension = 'png';
-    tools['AnySection'].generate(document.getElementById('web-tools-container'));
-}
-
 class WebToolFrame {
     constructor(name) {
         this.name = name; //string
@@ -120,17 +105,17 @@ class HybridSlideshow {
     }
 
     updateAll() {
-        tools[this.name].slideshow.updateImage();
-        tools[this.name].slideshow.updateRadio();
-        if (tools[this.name].slideshow.counter == 0) {
-            tools[this.name].slideshow.lArrow.style('visibility', 'hidden');
+        this.updateImage();
+        this.updateRadio();
+        if (this.counter == 0) {
+            this.lArrow.style('visibility', 'hidden');
         } else {
-            tools[this.name].slideshow.lArrow.style('visibility', 'visible');
+            this.lArrow.style('visibility', 'visible');
         }
-        if (tools[this.name].slideshow.counter == this.pics.length - 1) {
-            tools[this.name].slideshow.rArrow.style('visibility', 'hidden');
+        if (this.counter == this.pics.length - 1) {
+            this.rArrow.style('visibility', 'hidden');
         } else {
-            tools[this.name].slideshow.rArrow.style('visibility', 'visible');
+            this.rArrow.style('visibility', 'visible');
         }
     }
 
