@@ -32,17 +32,25 @@ class WebToolFrame {
         }
         let link = createA(this.link, '', '_blank');
         link.parent(captions);
-        let button = createButton('Use tool!');
-        button.parent(link);
 
         // elemento contenitore slideshow
         let imagesSide = createDiv();
         imagesSide.addClass('child');
-        if (inverted) { imagesSide.style('order', '-1') }
+        if (inverted && !vertical) { imagesSide.style('order', '-1') }
         imagesSide.parent(container);
         this.slideshow = new HybridSlideshow(this.name, this.combinePaths());
         this.slideshow.generate(imagesSide);
         this.slideshow.updateAll();
+
+        let button = createButton('Use tool!');
+        button.parent(link);
+        // stile verticale
+        if (vertical) {
+            captions.addClass('vertical');
+            imagesSide.addClass('vertical');
+            container.addClass('vertical');
+            button.parent(imagesSide);
+        }
     }
 
     combinePaths() { // funzione che restituisce un array dei percorsi delle immagini

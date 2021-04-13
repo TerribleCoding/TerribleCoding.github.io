@@ -5,6 +5,7 @@
 	--color-1: whitesmoke;
 	--color-2: red;
 	--color-3: yellow;
+	--color-4: #ffffff33;
 }
 
 body {
@@ -104,13 +105,25 @@ h2 {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	width: 90%;
+	margin: auto;
 	margin-bottom: 48px;
+	border-style: solid none solid none;
+	border-color: var(--color-4);
+	border-width: 1px;
+}
+
+.container.vertical {
+	flex-direction: column;
 }
 
 .child {
-	/*width: 40%;*/
 	max-width: 50%;
 	padding: 1.5%;
+}
+
+.child.vertical {
+	max-width: 100%;
 }
 
 .img-container {
@@ -124,7 +137,7 @@ h2 {
 	/*transition: 0.5s;*/
 }
 
-[data-lightbox] > img {
+[data-lightbox]>img {
 	width: 100%;
 }
 
@@ -137,6 +150,7 @@ h2 {
 	display: flex;
 	justify-content: space-evenly;
 	padding-top: 4px;
+	padding-bottom: 8px;
 }
 
 .radio-child {

@@ -1,6 +1,7 @@
 let particles = [];
 let db;
 let tools = {};
+let vertical;
 
 function preload() {
     db = loadJSON("database/web-tools.json");
@@ -8,6 +9,7 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    vertical = width < height;
     particleField();
     addPageElements();
 }
