@@ -8,6 +8,10 @@
 	--color-4: #ffffff33;
 }
 
+#p5_loading {
+	display: none;
+}
+
 body {
 	background-color: var(--color-0);
 	text-align: center;
