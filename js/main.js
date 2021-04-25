@@ -4,7 +4,7 @@ let tools = {};
 let vertical;
 
 function preload() {
-    db = loadJSON("database/web-tools.json");
+    db = loadJSON("../database/web-tools.json");
 }
 
 function setup() {
